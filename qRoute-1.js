@@ -1,3 +1,4 @@
+// https://github.com/bryku/qRoute
 let qRoute = {
 	onIndex: '',
 	onError: '',
