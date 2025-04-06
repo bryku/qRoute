@@ -3,7 +3,10 @@
 JavaScript Router for SPA (single page application).
 
     eRoute.path('/', ()=>{
-        console.log('home page');
+        eRoute.redirct('/home');
+    });
+    eRoute.path('/home',()=>{
+        console.log('home page');    
     });
     eRoute.path('/books/?book', (data)=>{
         console.log('books page');
