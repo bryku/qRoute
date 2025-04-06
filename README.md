@@ -17,6 +17,22 @@ JavaScript Router for SPA (single page application).
     }, true);
     eRoute.load();
 
-The `true` at the end defines this path as a "fallback", so this will trigger when the path isn't found.
+You can add `true` to your error page, so it triggers when the path isn't found.
 
+### Data
 
+Here is the **data** variable assuming the url is `website.com/?!=/books/harry_potter&mode=dark`.
+
+eRoute.path(`/books/?book`, (data)=>{
+    console.log(data.get); // {!: '/book/harry_potter', mode: 'dark'}
+    console.log(data.url); // {book: harry_potter}
+    console.log(data.path); // '/books/harry_potter'
+    console.log(data.data); undefined
+});
+
+You can define the `data.data` value using redirect.
+
+eRoute.path('/error',(data)=>{
+    console.log(data.data); // 'ERROR 404'
+});
+eRoute.redirect('/error', 'ERROR 404');
